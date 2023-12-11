@@ -5,6 +5,11 @@ VisualStudioVersion = 17.7.34202.233
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "BigNumbers", "BigNumbers.vcxproj", "{095A23C5-42B2-4CCD-87B2-1992C8BB6905}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "TestBigNumbers", "..\TestBigNumbers\TestBigNumbers.vcxproj", "{CAB2FDA3-64E8-4B0E-AEE3-41E3DEC087E6}"
+	ProjectSection(ProjectDependencies) = postProject
+		{095A23C5-42B2-4CCD-87B2-1992C8BB6905} = {095A23C5-42B2-4CCD-87B2-1992C8BB6905}
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -21,6 +26,14 @@ Global
 		{095A23C5-42B2-4CCD-87B2-1992C8BB6905}.Release|x64.Build.0 = Release|x64
 		{095A23C5-42B2-4CCD-87B2-1992C8BB6905}.Release|x86.ActiveCfg = Release|Win32
 		{095A23C5-42B2-4CCD-87B2-1992C8BB6905}.Release|x86.Build.0 = Release|Win32
+		{CAB2FDA3-64E8-4B0E-AEE3-41E3DEC087E6}.Debug|x64.ActiveCfg = Debug|x64
+		{CAB2FDA3-64E8-4B0E-AEE3-41E3DEC087E6}.Debug|x64.Build.0 = Debug|x64
+		{CAB2FDA3-64E8-4B0E-AEE3-41E3DEC087E6}.Debug|x86.ActiveCfg = Debug|Win32
+		{CAB2FDA3-64E8-4B0E-AEE3-41E3DEC087E6}.Debug|x86.Build.0 = Debug|Win32
+		{CAB2FDA3-64E8-4B0E-AEE3-41E3DEC087E6}.Release|x64.ActiveCfg = Release|x64
+		{CAB2FDA3-64E8-4B0E-AEE3-41E3DEC087E6}.Release|x64.Build.0 = Release|x64
+		{CAB2FDA3-64E8-4B0E-AEE3-41E3DEC087E6}.Release|x86.ActiveCfg = Release|Win32
+		{CAB2FDA3-64E8-4B0E-AEE3-41E3DEC087E6}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

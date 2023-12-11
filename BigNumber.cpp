@@ -1,7 +1,7 @@
-#include "BigNumbers.h"
+#include "BigNumber.h"
 
 
-BigNumbers::BigNumbers(long long num)
+BigNumber::BigNumber(long long num)
 {
 	// Получение старшего бита числа num
 	// Если этот бит равен 1, то знак минус,

@@ -19,10 +19,10 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="BigNumbers.h" />
+    <ClInclude Include="BigNumber.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="BigNumbers.cpp" />
+    <ClCompile Include="BigNumber.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>17.0</VCProjectVersion>

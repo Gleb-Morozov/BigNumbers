@@ -15,12 +15,12 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="BigNumbers.h">
+    <ClInclude Include="BigNumber.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="BigNumbers.cpp">
+    <ClCompile Include="BigNumber.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
   </ItemGroup>
