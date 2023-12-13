@@ -44,22 +44,29 @@ BigNumber& BigNumber::operator^=(const BigNumber& big_number)
 
 	auto a_length = a_number.size();
 	auto b_length = b_number.size();
-	auto min_length = std::min(a_number.size(), b_number.size());
+		
+	if (a_length > b_length) {
+		// Побитовое исключающее ИЛИ каждого
+		// блока числа a и каждого блока числа b
+		// до последнего блока b
+		for (auto i = 0; i < b_length; ++i)
+			a_number[i] ^= b_number[i];
 
-	// Число a не может быть по длине больше числа b,
-	// поскольку в таком случае старшие блоки,
-	// которые превзошли число b, зануляются
-	if (a_length > b_length)
-		a_number.resize(b_length);
-	// Если число a будет по длине меньше числа b,
-	// то это не приведет к проблемам, поскольку
-	// мы даже не будем обращаться к тем блокам,
-	// которые по длине превосходят число a
+		// Побитовое исключающее ИЛИ оставшихся
+		// блоков числа a и нулевых блоков,
+		// поскольку в числе b блоков не осталось
+		for (auto i = b_length; i < a_length; ++i)
+			a_number[i] ^= 0;
+	}
+	else if (b_length > a_length) {
+		// Дополнение числа a нулевыми блоками
+		a_number.resize(b_length, 0);
 
-	// Побитовое исключающее ИЛИ каждого
-	// блока числа a и каждого блока числа b
-	for (auto i = 0; i < min_length; ++i)
-		a_number[i] ^= b_number[i];
+		// Побитовое исключающее ИЛИ каждого
+		// блока числа a и каждого блока числа b
+		for (auto i = 0; i < b_length; ++i)
+			a_number[i] ^= b_number[i];
+	}
 
 	return *this;
 }
