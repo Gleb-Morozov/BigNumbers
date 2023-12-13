@@ -9,6 +9,7 @@ public:
 	BigNumber operator~();
 	BigNumber& operator^=(const BigNumber& big_number);
 	BigNumber operator^(const BigNumber& big_number);
+	BigNumber& operator&=(const BigNumber& big_number);
 private:
 	void bitwiseNOT();
 	std::vector<uint32_t> number;
