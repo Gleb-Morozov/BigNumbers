@@ -115,3 +115,45 @@ BigNumber BigNumber::operator&(const BigNumber& big_number)
 	num &= big_number;
 	return num;
 }
+
+BigNumber& BigNumber::operator|=(const BigNumber& big_number)
+{
+	// Над числами a и b производится операция
+	// побитового ИЛИ (OR)
+	// В результате этой операции число b изменяет число a
+
+	auto& a_number = this->number;
+	auto& b_number = big_number.number;
+
+	auto a_length = a_number.size();
+	auto b_length = b_number.size();
+
+	if (a_length > b_length) {
+		// Побитовое ИЛИ каждого
+		// блока числа a и каждого блока числа b
+		// до последнего блока b
+		for (auto i = 0; i < b_length; ++i)
+			a_number[i] |= b_number[i];
+
+		// Оставшиеся блоки числа a останутся без изменений,
+		// поскольку в числе b не осталось блоков, 
+		// т.е. оставшиеся блоки числа b равны нулю
+	}
+	else if (b_length > a_length) {
+		// Дополнение числа a блоками до длины числа b
+		a_number.resize(b_length);
+
+		// Побитовое ИЛИ каждого ненулевого
+		// блока числа a и каждого блока числа b
+		for (auto i = 0; i < a_length; ++i)
+			a_number[i] |= b_number[i];
+
+		// Поскольку в числе a остались только новые нулевые блоки,
+		// то можно скопировать оставшиеся блоки числа b
+		// в нулевые блоки числа a
+		for (auto i = a_length; i < b_length; ++i)
+			a_number[i] = b_number[i];
+	}
+
+	return *this;
+}
