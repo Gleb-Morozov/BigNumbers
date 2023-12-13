@@ -25,3 +25,10 @@ void BigNumber::bitwiseNOT()
 	for (auto& block : this->number)
 		block = ~block;
 }
+
+BigNumber BigNumber::operator~()
+{
+	BigNumber num = *this;
+	num.bitwiseNOT();
+	return num;
+}
