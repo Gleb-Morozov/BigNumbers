@@ -19,3 +19,9 @@ BigNumber::BigNumber(long long num)
 	number[0] = num;
 	number[1] = num >> 32;
 }
+
+void BigNumber::bitwiseNOT()
+{
+	for (auto& block : this->number)
+		block = ~block;
+}
