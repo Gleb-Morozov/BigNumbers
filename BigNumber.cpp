@@ -157,3 +157,10 @@ BigNumber& BigNumber::operator|=(const BigNumber& big_number)
 
 	return *this;
 }
+
+BigNumber BigNumber::operator|(const BigNumber& big_number)
+{
+	BigNumber num = *this;
+	num |= big_number;
+	return num;
+}
