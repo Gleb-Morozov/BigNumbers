@@ -16,6 +16,6 @@ public:
 private:
 	void bitwiseNOT();
 	std::vector<uint32_t> number;
-	bool sign = false;				// Знак, false - плюс, true - минус
+	bool sign = false;				// Р—РЅР°Рє, false - РїР»СЋСЃ, true - РјРёРЅСѓСЃ
 };
 
