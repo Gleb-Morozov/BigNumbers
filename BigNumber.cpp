@@ -24,23 +24,42 @@ BigNumber::BigNumber(int32_t num)
 	number.push_back(num);
 }
 
-BigNumber::BigNumber(long long num)
+BigNumber::BigNumber(int64_t num)
 {
-	// Получение старшего бита числа num
-	// Если этот бит равен 1, то знак минус,
-	// а если равен 0, то знак плюс
-	sign = (num >> 63) & 1;
+	// Если число num равно нулю,
+	// то больше ничего менять не нужно:
+	// - вектор number будет иметь нулевой размер
+	// - переменная sign будет равна false
+	if (num == 0)
+		return;
+	
+	uint32_t low_bits = num;		// Младшие 32 бита числа num
+	uint32_t high_bits = num >> 32;	// Старшие 32 бита числа num
+	
+	// Если старшее число равно нулю,
+	// то число положительное и
+	// состоит только из одного блока
+	if (high_bits == 0) {
+		number.push_back(low_bits);
+		sign = false;
+	}
+	else {
+		// Получение старшего бита числа num
+		// Если этот бит равен 1, то знак минус,
+		// а если равен 0, то знак плюс
+		sign = num & LLONG_MIN;
 
-	// long long имеет размер 64 бита,
-	// а каждый элемент вектора number имеет размер 32 бита,
-	// поэтому необходимо 2 элемента вектора number
-	number.resize(2);
+		// long long имеет размер 64 бита,
+		// а каждый элемент вектора number имеет размер 32 бита,
+		// поэтому необходимо 2 элемента вектора number
+		number.resize(2);
 
-	// Разбиваем num_copy на две части
-	// Младшая часть пойдет в number[0]
-	// Старшая часть пойдет в number[1]
-	number[0] = num;
-	number[1] = num >> 32;
+		// Разбиваем num_copy на две части
+		// Младшая часть пойдет в number[0]
+		// Старшая часть пойдет в number[1]
+		number[0] = low_bits;
+		number[1] = high_bits;
+	}
 }
 
 void BigNumber::bitwiseNOT()
