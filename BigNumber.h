@@ -6,6 +6,7 @@ class BigNumber
 {
 public:
 	BigNumber();
+	BigNumber(int32_t num);
 	BigNumber(long long num);
 	BigNumber operator~();
 	BigNumber& operator^=(const BigNumber& big_number);
