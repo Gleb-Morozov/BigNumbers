@@ -89,7 +89,7 @@ BigNumber& BigNumber::operator&=(const BigNumber& big_number)
 
 	auto a_length = a_number.size();
 	auto b_length = b_number.size();
-	auto min_length = std::min(a_number.size(), b_number.size());
+	auto min_length = std::min(a_length, b_length);
 
 	// Число a не может быть по длине больше числа b,
 	// поскольку в таком случае старшие блоки,
