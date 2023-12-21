@@ -5,7 +5,8 @@
 class BigNumber
 {
 public:
-	BigNumber(long long num = 0);
+	BigNumber();
+	BigNumber(long long num);
 	BigNumber operator~();
 	BigNumber& operator^=(const BigNumber& big_number);
 	BigNumber operator^(const BigNumber& big_number);

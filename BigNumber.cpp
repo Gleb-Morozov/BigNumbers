@@ -1,6 +1,10 @@
 #include "BigNumber.h"
 
 
+BigNumber::BigNumber()
+{
+}
+
 BigNumber::BigNumber(long long num)
 {
 	// Получение старшего бита числа num
